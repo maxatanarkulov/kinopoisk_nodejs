@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/head.ejs')%>
+    <title>Document</title>
+</head>
+<body>
+    <%-include('partials/header.ejs')%>
+    <div class="container">
+        <div class="edit-profile">
+            <h2>Редактировать профиль</h2>
+            <form class="edit-profile-form" method="POST" action="/api/editprofile">
+                <input type="hidden" name="id" value="<%=user.id%>">
+
+                <label>Полное имя пользователя</label>
+                <input type="text" placeholder="Введите полное имя" name="full_name" value="<%=user.full_name%>">
+
+                <button type="submit">Сохранить</button>
+            </form>
+            <button class="del-button" onclick="deleteAccount('<%=user._id%>')">Удалить свой аккаунт</button>
+        </div>
+    </div>
+    <%-include('partials/scripts.ejs')%>
+</body>
+</html>
